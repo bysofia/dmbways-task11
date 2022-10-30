@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+
+    <title>Font Awesome Icons</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Google Icons</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/public/css/day-1.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"></a>
+            <img src="/public/img/brandred.png" alt="Logo" width="40" height="30" class="d-inline-block">
+            <div id="navbarNav">
+                <ul class="nav">
+                    <li class="nav-item" style="margin-left: 20px;">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    {{if .Data.IsLogin}}
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-currents="page" href="/addmyproject">Add My Project</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-currents="page" href="/register">Register</a>
+                    </li>
+                    {{end}}
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-currents="page" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item" style="margin-left: 500px;">
+                        {{if .Data.IsLogin}}
+                        <a class="nav-link active" aria-currents="page" href="/logout">Log Out</a>
+                        {{end}}
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/contact"><button type="button"
+                                class="btn btn-dark">Contact Me</button></a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="shadow p-3 mb-5 bg-body rounded">
+        <div class="profil-day1">
+            <div class="shadow p-3 mb-5 bg-body rounded card" style="width: 18rem;">
+                <img src="/public/img/ENDORSE.jpg" class="card-img-top">
+                <div class="card-body">
+                    <h1 class="card-title">Rizky Abdulah</h1>
+                    <h2 class="card-title">Fullstack Developer</h2>
+                </div>
+            </div>
+            <h3 class="h3">Hi Welcome to my hut</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+                into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
+                release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+                software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <div class="btn-submit">
+                <button type="button" class="btn btn-dark"><a href="/contact"
+                        style="color: white;text-decoration: none;">contact</a></button>
+                <a href="/views/blog-detail.html"
+                    style="color: black; text-decoration:none; margin-left: 10px;">download CV</a><i
+                    class="material-icons" style="margin-left: 15px;">&#xe2c4;</i>
+            </div>
+            <div class="icon-sosmed">
+                <ul style="display: flex; list-style-type:none;margin-top: 30px;">
+                    <li style="margin-right: 30px;"><i style="font: size 30px;" class="fa">&#xf0e1</i></li><br>
+                    <li style="margin-right: 30px;"><i style="font: size 30px;" class="fa">&#xf16d</i></li>
+                    <li style="margin-right: 30px;"><i style="font: size 30px;" class="fa">&#xf082</i></li>
+                    <li style="margin-right: 30px;"><i style="font: size 30px;" class="fa">&#xf099</i></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+    {{if .Data.IsLogin}}
+    <section>
+
+        <!--====Blog-section=====----->
+        <!----===blog-heading=====-->
+
+        <!--==Blog-container=======-->
+        <div class="blog-container">
+            {{range $index, $data := .Projects}}
+            <!--==box-1====-->
+            <div class="blog-box">
+                <!--==blog-image===-->
+                <div class="blog-img">
+                    <img src="../public/img/blog-1.jpeg" alt="#">
+                </div>
+
+                <!------==blog-text=----->
+                <div class="blog-text">
+                    <span style="text-align: center;"> Duration : {{$data.Project_duration}} </span>
+                    <a href="/blog-detail/{{$data.Id}}" class="blog-title" style="text-align: center;">
+                        {{$data.Project_name}}
+                    </a>
+                    <p style="text-align: center;">{{$data.Project_description}}</p>
+                    <a href="/blog-detail/{{$data.Id}}" style="text-align: center;">Read more...</a>
+                </div>
+                <div class="btn-group">
+                    <a href="/form-update-project/{{$data.Id}}" class="btn-edit">Edit Project</a>
+                    <a href="/delete-blog/{{$data.Id}}" class="btn-post">Delete Project</a>
+                </div>
+
+            </div>
+            {{end}}
+        </div>
+    </section>
+    {{end}}
+
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add My Project</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalab=no">
+
+    <title>Add My Project</title>
+    <link rel="stylesheet" href="/public/css/day-1.css">
+
+    <script src="/public/js/add-my-project.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <nav class="navbar bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"></a>
+            <img src="/public/img/brandred.png" alt="Logo" width="40" height="30" class="d-inline-block">
+            <div id="navbarNav">
+                <ul class="nav">
+                    <li class="nav-item" style="margin-left: 50px;">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-currents="page" href="/addmyproject">Add My Project</a>
+                    </li>
+                    <li class="nav-item" style="margin-left: 700px;">
+                        <a class="nav-link active" aria-current="page" href="/contact"><button type="button"
+                                class="btn btn-dark">Contact Me</button></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--Form Add My Project-->
+    <div class="container">
+        <div class="form-utama">
+            <h2><a href="/form-project">ADD MY PROJECT</a></h2>
+
+        </div>
+    </div>
+
+    <br>
+    <hr />
+
+    
+    <section>       
+
+        <!--==Blog-container=======-->
+        <div class="blog-container">
+            {{range $index, $data := .Projects}}
+            <!--==box-1====-->
+            <div class="blog-box">
+                <!--==blog-image===-->
+                <div class="blog-img">
+                    <img src="../public/img/blog-1.jpeg" alt="#">
+                </div>
+
+                <!------==blog-text=----->
+                <div class="blog-text">
+                    <span style="text-align: center;"> Duration : {{$data.Project_duration}} </span>
+                    <a href="/blog-detail/{{$data.Id}}" class="blog-title" style="text-align: center;">
+                        {{$data.Project_name}}
+                    </a>
+                    <p style="text-align: center;">{{$data.Project_description}}</p>
+                    <a href="/blog-detail/{{$data.Id}}" style="text-align: center;">Read more...</a>
+                </div>
+                
+                <div class="btn-group">
+                    <a href="/form-update-project/{{$data.Id}}" class="btn-edit">Edit Project</a>
+                    <a href="/delete-blog/{{$data.Id}}" class="btn-post">Delete Project</a>
+                </div>
+
+            </div>
+            {{end}}
+        </div>
+    </section>
+    
+</body>
+
+</html>

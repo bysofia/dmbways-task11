@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+}
+
+.detail-blog{
+    width: 1130px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 50px;
+
+}
+
+.col-4 {
+    align-items: left;
+    display: flex;
+}
+
+.col-4 .image1 {
+    display: flex;
+    width: 100%;
+    margin-right: 30px;
+}
+
+.textblog{
+    text-align: left;
+}
+
+.textblog ul {
+    list-style-type: none;
+}
+
+.detail-blog-content{
+    text-align: justify;
+    margin-top: 30px;
+}

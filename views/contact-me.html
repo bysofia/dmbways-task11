@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form</title>
+    <link rel="stylesheet" href="/public/css/contact-me.css">
+
+    <title>bootstrap</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <!--==Nav Bar==-->
+    <nav class="navbar bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"></a>
+            <img src="/public/img/brandred.png" alt="Logo" width="40" height="30" class="d-inline-block">
+            <div id="navbarNav">
+                <ul class="nav">
+                    <li class="nav-item" style="margin-left: 50px;">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-currents="page" href="/addmyproject">Add My Project</a>
+                    </li>
+                    <li class="nav-item" style="margin-left: 700px;">
+                        <a class="nav-link active" aria-current="page" href="/contact"><button type="button"
+                                class="btn btn-dark">Contact Me</button></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--==Form=======-->
+
+    <br>
+
+    <h1 style="color: black;font-weight: bold;text-align: center;">GET IN TOUCH</h1>
+
+    <form>
+        <div>
+            <label for="input-name">Name</label>
+            <input height="50" type="text" id="input-name" placeholder="Your name" required>
+        </div>
+        <div>
+            <label for="input-email">Email</label>
+            <input type="email" id="input-email" placeholder="Your email" required>
+        </div>
+        <div>
+            <label for="input-phone">Phone Number</label>
+            <input type="text" id="input-phone" placeholder="Your number" required>
+        </div>
+        <div>
+            <label for="input-subject">Subject</label>
+            <select id="input-subject" required>
+                <option value="" hidden>Select</option>
+                <option>FrontEnd</option>
+                <option>BackEnd</option>
+                <option>Fullstack</option>
+            </select>
+        </div>
+        <div>
+            <label for="input-message">Your Message</label>
+            <textarea rows="5" cols="30" placeholder="Your message" id="input-message"></textarea>
+        </div>
+        <div>
+            <button type="button" onclick="showData()">Submit</button>
+        </div>
+    </form>
+</body>
+<script src="/public/js/contact-me.js"></script>
+
+</html>
